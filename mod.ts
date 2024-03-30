@@ -35,18 +35,18 @@ Options:
 	Deno.exit(0);
 }
 
-const fromUrl = new URL(args.from || "");
-console.log("proxying " + fromUrl.href);
+const toUrl = new URL(args.to || "");
+console.log("proxying " + toUrl.href);
 
-const port = parseInt(args.to || "-1", 10);
+const port = parseInt(args.from || "-1", 10);
 
 Deno.serve({
 	port,
 }, async (request) => {
 	const url = new URL(request.url);
-	url.protocol = fromUrl.protocol;
-	url.hostname = fromUrl.hostname;
-	url.port = fromUrl.port;
+	url.protocol = toUrl.protocol;
+	url.hostname = toUrl.hostname;
+	url.port = toUrl.port;
 	let proxyResponse;
 	try {
 		proxyResponse = await fetch(url.href, {
