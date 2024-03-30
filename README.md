@@ -5,7 +5,7 @@ A CLI tool that starts a reverse proxy server.
 ## Install
 
 ```
-deno install --allow-net https://deno.land/x/reverso@v0.2.0/reverso.ts
+deno install --allow-net https://deno.land/x/reverso@v0.3.0/reverso.ts
 ```
 
 ## Usage
